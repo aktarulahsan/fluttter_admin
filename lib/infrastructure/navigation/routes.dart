@@ -4,6 +4,8 @@ class Routes {
     return DASHBOARD;
   }
 
-  static const HOME = '/home';
   static const DASHBOARD = '/dashboard';
+  static const HOME = '/dashboard/home';
+  static const QUIZ = '/dashboard/quiz';
+  static const TASK = '/dashboard/task';
 }

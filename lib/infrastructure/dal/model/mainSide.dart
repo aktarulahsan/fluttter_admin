@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class MainSide {
-  final String title;
-  final IconData icon;
-  final int id;
+  String? title;
+  IconData? icon;
+  int? id;
   List<MainSide>? submenu;
 
   MainSide({
-    required this.title,
-    required this.icon,
-    required this.id,
+    this.title,
+    this.icon,
+    this.id,
     this.submenu,
   });
 }
@@ -17,13 +17,10 @@ class MainSide {
 List demoMainSide = [
   MainSide(
       icon: Icons.dashboard_outlined, title: "Dashboard", id: 0, submenu: []),
-  MainSide(icon: Icons.rocket_outlined, title: "Activity", id: 1, submenu: [
-    MainSide(
-        icon: Icons.dashboard_outlined, title: "Activity1", id: 7, submenu: []),
-    MainSide(
-        icon: Icons.dashboard_outlined, title: "Activity2", id: 8, submenu: []),
-    MainSide(
-        icon: Icons.dashboard_outlined, title: "Activity3", id: 9, submenu: []),
+  MainSide(icon: Icons.rocket_outlined, title: "activity", id: 1, submenu: [
+    MainSide(icon: Icons.dashboard_outlined, title: "home", id: 7, submenu: []),
+    MainSide(icon: Icons.dashboard_outlined, title: "quiz", id: 8, submenu: []),
+    MainSide(icon: Icons.dashboard_outlined, title: "task", id: 9, submenu: []),
   ]),
   MainSide(
       icon: Icons.fitness_center_outlined,

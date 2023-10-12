@@ -78,7 +78,7 @@ class Sidebar extends StatelessWidget {
       child: mainSide.submenu!.isEmpty
           ? Obx(() => Container(
                 decoration: BoxDecoration(
-                    color: controller!.selectedIndex.value == mainSide.id
+                    color: controller!.selectedMenu.value == mainSide.id
                         ? Color(0xFFCCEDDD)
                         : Colors.transparent,
                     gradient: const LinearGradient(
@@ -88,7 +88,7 @@ class Sidebar extends StatelessWidget {
                 child: ListTile(
                   hoverColor: Color(0xFFCCEDDD),
                   onTap: () {
-                    controller!.selectedIndex.value = mainSide.id;
+                    controller!.selectedMenu.value = mainSide;
                   },
                   leading: Padding(
                     padding: const EdgeInsets.only(left: defaultPadding * 1.5),
@@ -97,16 +97,16 @@ class Sidebar extends StatelessWidget {
                       width: 30,
                       child: Icon(
                         mainSide.icon,
-                        color: controller!.selectedIndex.value == mainSide.id
+                        color: controller!.selectedMenu.value.id == mainSide.id
                             ? Colors.black
                             : Colors.white,
                       ),
                     ),
                   ),
                   title: Text(
-                    mainSide.title,
+                    mainSide.title!,
                     style: GoogleFonts.ubuntu(
-                        color: controller!.selectedIndex.value == mainSide.id
+                        color: controller!.selectedMenu.value.id == mainSide.id
                             ? Colors.black
                             : Colors.white,
                         fontSize: 14,
@@ -116,7 +116,7 @@ class Sidebar extends StatelessWidget {
               ))
           : ExpansionTile(
               leading: Icon(mainSide.icon),
-              title: Text(mainSide.title),
+              title: Text(mainSide.title!),
               children: mainSide.submenu!.map((submenu) {
                 return ListTile1(submenu);
               }).toList(),
@@ -128,7 +128,7 @@ class Sidebar extends StatelessWidget {
     return Container(
       child: Obx(() => Container(
             decoration: BoxDecoration(
-                color: controller!.selectedIndex.value == index + 5
+                color: controller!.selectedMenu.value.id == index + 5
                     ? Color(0xFFCCEDDD)
                     : Colors.transparent,
                 gradient: const LinearGradient(
@@ -138,7 +138,7 @@ class Sidebar extends StatelessWidget {
             child: ListTile(
               hoverColor: Color(0xFFCCEDDD),
               onTap: () {
-                controller!.selectedIndex.value = index + 5;
+                controller!.selectedMenu.value.id = index + 5;
               },
               leading: Padding(
                 padding: const EdgeInsets.only(left: defaultPadding * 1.5),
@@ -147,7 +147,7 @@ class Sidebar extends StatelessWidget {
                   width: 30,
                   child: Icon(
                     mainSide.icon,
-                    color: controller!.selectedIndex.value == index + 5
+                    color: controller!.selectedMenu.value.id == index + 5
                         ? Colors.black
                         : Colors.white,
                   ),
@@ -156,7 +156,7 @@ class Sidebar extends StatelessWidget {
               title: Text(
                 mainSide.title,
                 style: GoogleFonts.ubuntu(
-                    color: controller!.selectedIndex.value == index + 5
+                    color: controller!.selectedMenu.value.id == index + 5
                         ? Colors.black
                         : Colors.white,
                     fontSize: 14,
